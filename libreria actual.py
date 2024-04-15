@@ -1658,7 +1658,12 @@ _file_template = """
           content="text/html; charset=%(charset)s" />
     <title></title>
     <link rel="stylesheet" href="../css/diff.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
     <style type="text/css">%(styles)s
     </style>
 </head>
@@ -1670,17 +1675,21 @@ _file_template = """
 </html>"""
 
 _styles = """
-        table.diff {font-family:Courier;}
-        .diff_header {background-color:#e0e0e0}
-        td.diff_num {text-align:right}
-        .diff_next {background-color:#c0c0c0}
-        .diff_add {background-color:#aaffaa}
-        .diff_chg {background-color:#ffff77}
-        .diff_sub {background-color:#ffaaaa}"""
+        table.diff {font-family:'JetBrains Mono';}
+        .diff_header {background-color:#e0e0e0; font-family: 'DM Sans';}
+        td.diff_num {text-align:right; font-family: 'JetBrains Mono'; padding-right: 6px; color: #232360; font-weight: bold;}
+        td.diff_line {font-family: 'JetBrains Mono'; padding-left: 6px; color: #232360; font-weight: bold;}
+        .diff_next {background-color:#c0c0c0; }
+        .diff_add {background-color:#26F052}
+        .diff_chg {background-color:#FFF500}
+        .diff_sub {background-color:#FF2D2D}"""
 
 _table_template = """
     <table class="diff" id="difflib_chg_%(prefix)s_top"
            cellspacing="0" cellpadding="0" rules="groups" >
+
+    
+
         %(header_row)s
         
 %(data_rows)s        
@@ -2007,36 +2016,51 @@ class HtmlDiff(object):
         fromlist,tolist,flaglist,next_href,next_id = self._convert_flags(
             fromlist,tolist,flaglist,context,numlines)
 
-        s = []
-        fmt = '            <tr><td class="diff_next"%s>%s</td>%s' + \
-              '<td class="spacer"></td><td class="diff_next">%s</td>%s</tr>\n'
+        from_table = []
+        to_table = []
+        fmt_from = '<tr><td class="diff_next"%s>%s</td>%s' 
+        fmt_to = '<tr><td class="diff_next"%s>%s</td>%s' 
+        
         for i in range(len(flaglist)):
             if flaglist[i] is None:
                 # mdiff yields None on separator lines skip the bogus ones
                 # generated for the first line
                 if i > 0:
-                    s.append('        </tbody>        \n        <tbody>\n')
+                    from_table.append('        </tbody>\n        <tbody>\n')
+                    to_table.append('        </tbody>\n        <tbody>\n')
             else:
-                s.append( fmt % (next_id[i],next_href[i],fromlist[i],
-                                           next_href[i],tolist[i]))
+                from_table.append(fmt_from % (next_id[i], next_href[i], fromlist[i]))
+                to_table.append(fmt_to % (next_id[i], next_href[i], tolist[i]))
+
+
         if fromdesc or todesc:
             header_row = '<tr>%s%s%s</tr>' % (
-                '<th colspan="3" class="diff_header"><img src="../img/V1.png" class="folder">%s</th>' % fromdesc,
+                '<th colspan="3"  class="diff_header"><img src="../img/V1.png" class="folder">%s</th>' % fromdesc,
                 '<td class="spacer"></td>',
                 '<th colspan="3" class="diff_header"><img src="../img/V2.png" class="folder">%s</th>' % todesc)
         else:
             header_row = ''
+        
+        header_from = '<tr><th colspan="3" class="diff_header"><img src="../img/V1.png" class="folder">%s</th></tr>' % fromdesc if fromdesc else ''
+        header_to = '<tr><th colspan="3" class="diff_header"><img src="../img/V2.png" class="folder">%s</th></tr>' % todesc if todesc else ''
 
-        table = self._table_template % dict(
-            data_rows=''.join(s),
-            header_row=header_row,
-            prefix=self._prefix[1])
+        full_from_table = self._table_template % dict(data_rows=''.join(from_table), header_row=header_from, prefix=self._prefix[0])
+        full_to_table = self._table_template % dict(data_rows=''.join(to_table), header_row=header_to, prefix=self._prefix[1])
 
-        return table.replace('\0+','<span class="diff_add">'). \
+        return '<div style="display: flex; justify-content: center; width: 100%%; gap: 5%%;"><div style="width: auto;">%s</div><div style="width: auto;">%s</div></div>' \
+        % (full_from_table.replace('\0+','<span class="diff_add">'). \
                      replace('\0-','<span class="diff_sub">'). \
                      replace('\0^','<span class="diff_chg">'). \
                      replace('\1','</span>'). \
                      replace('\t','&nbsp;')
+            , full_to_table.replace('\0+','<span class="diff_add">'). \
+                    replace('\0-','<span class="diff_sub">'). \
+                    replace('\0^','<span class="diff_chg">'). \
+                    replace('\1','</span>'). \
+                    replace('\t','&nbsp;')
+            )
+
+
 
 del re
 
