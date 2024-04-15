@@ -2034,9 +2034,8 @@ class HtmlDiff(object):
 
 
         if fromdesc or todesc:
-            header_row = '<tr>%s%s%s</tr>' % (
+            header_row = '<tr>%s%s</tr>' % (
                 '<th colspan="3"  class="diff_header"><img src="../img/V1.png" class="folder">%s</th>' % fromdesc,
-                '<td class="spacer"></td>',
                 '<th colspan="3" class="diff_header"><img src="../img/V2.png" class="folder">%s</th>' % todesc)
         else:
             header_row = ''
@@ -2047,7 +2046,7 @@ class HtmlDiff(object):
         full_from_table = self._table_template % dict(data_rows=''.join(from_table), header_row=header_from, prefix=self._prefix[0])
         full_to_table = self._table_template % dict(data_rows=''.join(to_table), header_row=header_to, prefix=self._prefix[1])
 
-        return '<div style="display: flex; justify-content: center; width: 100%%; gap: 5%%;"><div style="width: auto;">%s</div><div style="width: auto;">%s</div></div>' \
+        return '<div class="container"><div class="height-container">%s</div><div class="height-container">%s</div></div>' \
         % (full_from_table.replace('\0+','<span class="diff_add">'). \
                      replace('\0-','<span class="diff_sub">'). \
                      replace('\0^','<span class="diff_chg">'). \
