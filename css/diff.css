@@ -87,30 +87,30 @@ table.diff{
     height: 771px;
     overflow: scroll;
 }
-
+/* Para ambas tablas */
 .container{
+    width: 100%;
     display: flex; 
-    justify-content: center; 
-    width: 100%; 
-    gap: 5%;
+    justify-content: space-between; 
+    gap: 4%;
     padding: 10px;
 }
-
+/* Para cada tabla */
 .height-container{
     height: 580px;
-    width: auto;
+    width: min-content;
     border-radius: 10px;
     overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: scroll;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);   
 }
 
-/* width */
+/* width del scrollbar */
 .height-container::-webkit-scrollbar {
     width: 10px;
 }
-  
-  /* Track */
+
+/* Track -> Palo completo */
 .height-container::-webkit-scrollbar-track {
     background: #fff;
     border-top-right-radius: 10px;
@@ -118,13 +118,13 @@ table.diff{
     height: calc(100% - 5px);
 }
   
-  /* Handle */
+/* Handle -> La barra del scrollbar */
 .height-container::-webkit-scrollbar-thumb {
     background: #D9D9D9;
     border-radius: 6px;
     min-height: 22px;
 }
-
+/* Botones -> te lo rifas tu @luis */
 .height-container::-webkit-scrollbar-button {
     background-color: #ccc;
     color: #333;
@@ -136,7 +136,6 @@ table.diff{
     border-radius: 3px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
-
 
 /* Quitarle el color y cambiar el tamaño de texto de todo */
 table.diff .diff_header, table.diff .diff_next, table.diff .diff_line, table.diff .diff_num{

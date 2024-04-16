@@ -115,18 +115,16 @@ header.cells input[type="text"]::placeholder{
 }
 
 .container {
-  width: 96%;
+  width: 100%;
   margin: 0 auto;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
 }
 
-
 .emb{
-  width: calc(90% + 10px);
+  width: 90%;
   height: 600px;
 }
 
