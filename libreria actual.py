@@ -1678,8 +1678,8 @@ _file_template = """
 _styles = """
         table.diff {font-family:'JetBrains Mono';}
         .diff_header {background-color:#e0e0e0; font-family: 'DM Sans';}
-        td.diff_num {text-align:right; font-family: 'JetBrains Mono'; padding-right: 6px; color: #232360; font-weight: bold;}
-        td.diff_line {font-family: 'JetBrains Mono'; padding-left: 6px; color: #232360; font-weight: bold;}
+        td.diff_num {text-align:right; font-family: 'JetBrains Mono'; padding-right: 6px; color: #0F0F32; font-weight: bold;}
+        td.diff_line {font-family: 'JetBrains Mono'; padding-left: 6px; color: #0F0F32; font-weight: bold;}
         .diff_next {background-color:#c0c0c0; }
         .diff_add {background-color:#26F052}
         .diff_chg {background-color:#FFF500}
