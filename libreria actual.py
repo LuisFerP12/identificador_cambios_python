@@ -1658,6 +1658,7 @@ _file_template = """
           content="text/html; charset=%(charset)s" />
     <title></title>
     <link rel="stylesheet" href="../css/diff.css">
+    <link rel="stylesheet" type="text/css" href="../css/resetStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
