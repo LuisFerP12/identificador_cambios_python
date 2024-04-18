@@ -1657,8 +1657,7 @@ _file_template = """
     <meta http-equiv="Content-Type"
           content="text/html; charset=%(charset)s" />
     <title></title>
-    <link rel="stylesheet" type="text/css" href="../css/resetStyle.css">
-    <link rel="stylesheet" type="text/css" href="../css/diff.css">
+    <link rel="stylesheet" href="../css/diff.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
@@ -1671,6 +1670,24 @@ _file_template = """
 
 <body>
     %(table)s%(legend)s
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var celdas = document.querySelectorAll("td");
+            celdas.forEach(function(celda) {
+                if (celda.querySelector("span.diff_add")) {
+                    celda.style.backgroundColor = "#26F052";
+                }
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            var celdas = document.querySelectorAll("td");
+            celdas.forEach(function(celda) {
+                if (celda.querySelector("span.diff_sub")) {
+                    celda.style.backgroundColor = "#FF2D2D";
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>"""
@@ -1911,7 +1928,7 @@ class HtmlDiff(object):
         # make space non-breakable so they don't get compressed or line wrapped
         text = text.replace(' ','&nbsp;').rstrip()
 
-        return '<td class="diff_num"%s>%s</td><td wrap="wrap" class="diff_line">%s</td>' \
+        return '<td class="diff_num"%s>%s</td><td nowrap="nowrap" class="diff_line">%s</td>' \
                % (id,linenum,text)
 
     def _make_prefix(self):
@@ -2047,7 +2064,7 @@ class HtmlDiff(object):
         full_from_table = self._table_template % dict(data_rows=''.join(from_table), header_row=header_from, prefix=self._prefix[0])
         full_to_table = self._table_template % dict(data_rows=''.join(to_table), header_row=header_to, prefix=self._prefix[1])
 
-        return '<div class="container"><div class="height-container">%s</div><div class="height-container">%s</div></div>' \
+        return '<div class="container"><div class="height-container">%s</div><div class="height-container">%s</div></div> ' \
         % (full_from_table.replace('\0+','<span class="diff_add">'). \
                      replace('\0-','<span class="diff_sub">'). \
                      replace('\0^','<span class="diff_chg">'). \

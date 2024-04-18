@@ -80,14 +80,14 @@ header.cells input[type="text"]::placeholder{
   color: #232360;
   font-weight: bold;
   font-size: 22px;
-  margin-right: 20px;
+  margin-right: 45px;
 }
 .legends p{
   /* font-family: DM Sans; */
   color: #000;
   font-weight: bold;
   font-size: 20px;
-  margin: 0px 50px;
+  margin: 0px 25px;
 }
 
 .diff_add, .diff_chg, .diff_sub{
