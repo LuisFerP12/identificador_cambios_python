@@ -91,23 +91,26 @@ table.diff{
 .container{
     width: 100%;
     display: flex; 
-    justify-content: space-between; 
+    justify-content: space-around;
     gap: 4%;
     padding: 10px;
 }
 /* Para cada tabla */
 .height-container{
     height: 580px;
-    width: min-content;
+    width: 40%;
     border-radius: 10px;
     overflow-y: scroll;
-    overflow-x: scroll;
+    overflow-x: hidden;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);   
+    background-color: #fff;
+    
 }
 
 /* width del scrollbar */
 .height-container::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
+    
 }
 
 /* Track -> Palo completo */
@@ -126,15 +129,17 @@ table.diff{
 }
 /* Botones -> te lo rifas tu @luis */
 .height-container::-webkit-scrollbar-button {
-    background-color: #ccc;
-    color: #333;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #999;
-    padding: 2px;
-    margin: 2px;
-    border-radius: 3px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    background-color: transparent; /* Opcional: hace transparente el fondo si solo quieres mostrar la imagen */
+    background-image: url('../img/boton.png'); /* Coloca la URL de tu imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen en el botón */
+    
+    border: none; /* Elimina cualquier borde predeterminado */
+    background-size: contain;
+}
+
+.height-container::-webkit-scrollbar-button:single-button:increment {
+    background-image: url('../img/boton2.png'); 
 }
 
 /* Quitarle el color y cambiar el tamaño de texto de todo */
@@ -164,11 +169,18 @@ table.diff tr th.diff_header{
 }
 table.diff .diff_num{
     border-right: 1px black solid;
+    vertical-align: top;
 }
 table.diff .diff_next a{
     text-decoration: none;
     margin-left: 5px;
 }
+td.diff_line {
+    white-space: normal; /* Asegura que el contenido puede romperse en varias líneas */
+    word-wrap: break-word; /* Permite que las palabras se rompan y pasen a la siguiente línea si no caben en la línea actual */
+    word-break: break-word; /* Rompe las palabras en puntos arbitrarios si es necesario para evitar desbordamiento horizontal */
+}
+
 .folder{
     height: 23px;
     width: auto;
