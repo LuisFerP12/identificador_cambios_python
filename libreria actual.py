@@ -1657,7 +1657,8 @@ _file_template = """
     <meta http-equiv="Content-Type"
           content="text/html; charset=%(charset)s" />
     <title></title>
-    <link rel="stylesheet" href="../css/diff.css">
+    <link rel="stylesheet" type="text/css" href="../css/resetStyle.css">
+    <link rel="stylesheet" type="text/css" href="../css/diff.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
@@ -1910,7 +1911,7 @@ class HtmlDiff(object):
         # make space non-breakable so they don't get compressed or line wrapped
         text = text.replace(' ','&nbsp;').rstrip()
 
-        return '<td class="diff_num"%s>%s</td><td nowrap="nowrap" class="diff_line">%s</td>' \
+        return '<td class="diff_num"%s>%s</td><td wrap="wrap" class="diff_line">%s</td>' \
                % (id,linenum,text)
 
     def _make_prefix(self):

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Archivos</title>
+    <style>
+        .center{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .underline-custom {
+            position: relative;
+            display: inline-block;
+        }
+
+        .underline-custom::before {
+            content: '';
+            position: absolute;
+            bottom: -8px; /* Ajusta la posición vertical del subrayado */
+            left: -21px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 21px 10px 21px;
+            border-color: transparent #26f052 transparent transparent; /* Cambia el color del triángulo */
+        }
+        .underline-custom::after {
+            content: '';
+            position: absolute;
+            bottom: -8px; /* Ajusta la posición vertical del subrayado */
+            left: 21px; /* Ajusta la posición horizontal del triángulo derecho */
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 21px 10px 21px; /* Ajusta el tamaño del triángulo */
+            border-color: transparent transparent transparent #1db33d; /* Color del triángulo derecho */
+        }
+    </style>
+</head>
+<body>
+    <!-- <form action="/procesar_archivo" method="post" enctype="multipart/form-data">
+        <input type="file" name="archivo" accept=".txt,.pdf,.doc,.docx">
+        <input type="submit" value="Enviar Archivo">
+    </form> -->
+
+    <div class="center">
+        <p class="underline-custom">Added</p>
+    </div>
+
+</body>
+</html>

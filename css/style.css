@@ -1,10 +1,10 @@
 body{
   background-color: #F3F4F8;
+  padding-bottom: 20px;
 }
 
 header.cells{
   padding: 17px;
-  margin-bottom: 20px;
   background-color: #FFF;
   display: flex;
   justify-content: center;
@@ -49,15 +49,99 @@ header.cells input[type="text"]::placeholder{
   flex-wrap: wrap;
   justify-content: center;
 }
+.snd-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  padding: 0px 10px;
+  margin: 20px 0px;
+  justify-content: space-between;
+}
+
+.snd-header h1{
+  /* font-family: DM Sans; */
+  color: #232360;
+  font-weight: bold;
+  font-size: 32;
+}
+
+.legends{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #FFF;
+  border-radius: 10px;
+  padding: 20px 25px;
+}
+
+.legends h2{
+  /* font-family: DM Sans; */
+  color: #232360;
+  font-weight: bold;
+  font-size: 22px;
+  margin-right: 20px;
+}
+.legends p{
+  /* font-family: DM Sans; */
+  color: #000;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0px 50px;
+}
+
+.diff_add, .diff_chg, .diff_sub{
+  position: relative;
+  display: inline-block;
+}
+
+.diff_add::before, .diff_add::after, .diff_chg::before, .diff_chg::after, .diff_sub::before, .diff_sub::after{
+  content: '';
+  position: absolute;
+  bottom: -8px; 
+  border-style: solid;
+}
+
+.diff_add::before {
+  border-width: 0 29px 10px 29px;
+  left: -29px;
+  border-color: transparent #26f052 transparent transparent; 
+}
+.diff_add::after {
+  border-width: 0 29px 10px 29px;
+  left: 29px;
+  border-color: transparent transparent transparent #1db33d;
+}
+
+.diff_chg::before {
+  border-width: 0 39px 10px 39px;
+  bottom: -10px; 
+  left: -39px;
+  border-color: transparent #FFF500 transparent transparent; 
+}
+.diff_chg::after {
+  border-width: 0 39px 10px 39px;
+  bottom: -10px; 
+  left: 39px;
+  border-color: transparent transparent transparent #DED600;
+}
+
+.diff_sub::before {
+  border-width: 0 32px 10px 32px;
+  left: -32px;
+  border-color: transparent #FF2D2D transparent transparent; 
+}
+.diff_sub::after {
+  border-width: 0 32px 10px 32px;
+  left: 32px;
+    border-color: transparent transparent transparent #CF2525;
+}
+
 
 .emb{
   width: 90%;
   height: 600px;
 }
-
-.diff_add {background-color:#aaffaa}
-.diff_chg {background-color:#ffff77}
-.diff_sub {background-color:#ffaaaa}
 
 table.legends {
   background-color: white;
