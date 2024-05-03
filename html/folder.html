@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+    
+    <link rel="stylesheet" type="text/css" href="../css/folView.css">
+    <link rel="stylesheet" type="text/css" href="../css/resetStyle.css">
+</head>
+<body>
+    <!-- <header class="cells">
+            <h1>jajajja lolardo</h1>
+    </header> -->
+    <div class="backG">
+        <h1>Projects</h1>
+        <div class="row">
+            <div class="search-container">
+                <input type="text" class="search" id="searchInput" placeholder="Find a Project..." oninput="buscarFolders()">
+                <span class="icon" onclick="buscarFolders()" style="cursor: pointer;"><img src="../img/Search.png" alt=""></span>
+            </div>
+            <button class="new-folder" onclick="createFolder()">
+                <img src="../img/folder.png" alt="" height="29px" width="29px">
+                <p>New</p>
+            </button>
+        </div>
+        <div id="folders"></div>
+        <!-- <div class="table-row">
+            <div class="table-l">
+                <h1>Identificador_cambios_python</h1>
+                <div class="table-l-d">
+                    <h2>Create: 27/03/23</h2>
+                    <h2>Modified: Last Week</h2>
+                </div>
+            </div>
+            <div class="table-r" >
+                <div class="table-r-l">
+                    <button class="btn" onclick="goTo()">Acceder</button>
+                    <h2>Versions: 5</h2>
+                </div>
+                <div class="table-r-r">
+                    <p style="font-size: 20px;">Delete?</p>
+                    <img src="../img/delete.png" alt="" class="delete" onclick="delFolder()">
+                </div>
+            </div>
+        </div> -->
+        
+        <!-- <div class="box">
+            <input type="file" id="fileInput">
+            <button onclick="uploadFile()">Upload</button>
+        </div> -->
+    </div>
+    <script src="../js/folderView.js"></script>
+    <script src="../js/createFolder.js"></script>
+</body>
+</html>

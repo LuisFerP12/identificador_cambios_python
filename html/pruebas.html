@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Archivos Responsiva</title>
+        <style>
+            .table {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            .row {
+                display: flex;
+                width: 100%;
+            }
+            .cell {
+                flex: 1;
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+            }
+            .header .cell {
+                font-weight: bold;
+                border-bottom: 2px solid black;
+            }
+            @media (max-width: 600px) {
+                .row {
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="table">
+            <div class="row header">
+                <div class="cell">Nombre</div>
+                <div class="cell">Tamaño</div>
+                <div class="cell">Subido</div>
+                <div class="cell">Descripción</div>
+            </div>
+            <div class="row">
+                <div class="cell" style="background-color: red; flex: 4;">Inicio.html</div>
+                <div class="cell" style="background-color: blue; flex: 3;">2.9 MB</div>
+                <div class="cell" style="background-color: black; flex-shrink: 2;">25 Feb 2022</div>
+                <div class="cell" style="background-color: yellow; flex-shrink: 1;">Página de home de mi página</div>
+            </div>
+            <!-- Añade más filas de div según sea necesario -->
+        </div>
+    </body>
+</html>

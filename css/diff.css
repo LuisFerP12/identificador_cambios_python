@@ -10,6 +10,7 @@ table.diff{
     border-bottom-left-radius: 10px;
     height: 771px;
     overflow: scroll;
+    scroll-behavior: smooth;
 }
 /* Para ambas tablas */
 .container{
@@ -28,6 +29,7 @@ table.diff{
     overflow-x: hidden;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);   
     background-color: #fff;
+    scroll-behavior: smooth;
     
 }
 
