@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="cells">
-            <h1>jajajja lolardo</h1>
+            <h1>header</h1>
     </header>
     <div class="backG">
         <div class="snd-header">
@@ -24,19 +24,80 @@
             <div class="files">
                 <h1>Recent Files</h1>
                 <div class="table">
-                    <div class="row header">
-                        <div class="cell" style="flex: 2;">Name <img src="../img/upArrow.png" height="12px" width="12px"></div>
-                        <div class="cell" style="flex: 1;">Size <img src="../img/upArrow.png" height="12px" width="12px"></div>
-                        <div class="cell" style="flex: 1;">Uploaded <img src="../img/upArrow.png" height="12px" width="12px"></div>
-                        <div class="cell" style="flex: 3;">Description</div>
+                    <div class="column name">
+                        <div class="header-t">Name<div class="arrow" onclick="changeArrow(this)"></div></div>
+                        <div class="row"><div class="projects"></div>Inicio.html</div>
+                        <div class="row"><div class="projects"></div>Inicio.js</div>
+                        <div class="row"><div class="projects"></div>Registrarse.js</div>
+                        <div class="row"><div class="projects"></div>Style.css</div>
+                        <div class="row"><div class="proj-folder"></div>Public</div>
+                        <div class="row"><div class="proj-folder"></div>Root</div>
+                    </div>
+                    <div class="column size">
+                        <div class="header-t">Size<div class="arrow" onclick="changeArrow(this)"></div></div>
+                        <div class="row">2.9 MB</div>
+                        <div class="row">2.9 MB</div>
+                        <div class="row">2.9 MB</div>
+                        <div class="row">2.9 MB</div>
+                        <div class="row">2.9 MB</div>
+                        <div class="row">2.9 MB</div>
+                    </div>
+                    <div class="column created">
+                        <div class="header-t">Uploaded<div class="arrow" onclick="changeArrow(this)"></div></div>
+                        <div class="row">Feb 25, 2022</div>
+                        <div class="row">Feb 25, 2022</div>
+                        <div class="row">Feb 25, 2022</div>
+                        <div class="row">Feb 25, 2022</div>
+                        <div class="row">Feb 25, 2022</div>
+                        <div class="row">Feb 25, 2022</div>
+                    </div>
+                    <div class="column desc">
+                        <div class="header-t">Description</div>
+                        <div class="row">Pagina de home de mi pagina</div>
+                        <div class="row">Script para poder iniciar sesion...</div>
+                        <div class="row">Script para poder registrar en la...</div>
+                        <div class="row">Archivo de hojas de estilos</div>
+                        <div class="row">Carpeta Public</div>
+                        <div class="row">Carpeta Root</div>
+                    </div>
+                </div>                
+            </div>
+            <div class="folders">
+                <div class="mini-fol">
+                    <div class="mini-fol-l">
+                        <img src="../img/Path.png" height="auto" width="38px">
+                        <p>Public</p>
+                    </div>
+                    <div class="mini-fol-r">
+                        <div class="folsection">
+                            <p>Componente.css</p>
+                        </div>
+                        <div class="folsection">
+                            <p>Navbar.html</p>
+                        </div>
+                        <div class="folsection">
+                            <p>Layout.html</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mini-fol">
+                    <div class="mini-fol-l">
+                        <img src="../img/Path.png" height="auto" width="38px">
+                        <p>Root</p>
+                    </div>
+                    <div class="mini-fol-r">
+                        <div class="folsection">
+                            <p>Nose.ns</p>
+                        </div>
+                        <div class="folsection">
+                            <p>Prueba.xd</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="folders"></div>
         </div>
 
     </div>
-    <script src="../js/folderView.js"></script>
-    <script src="../js/createFolder.js"></script>
+    <script src="../js/files.js"></script>
 </body>
 </html>

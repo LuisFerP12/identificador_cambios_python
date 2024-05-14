@@ -14,9 +14,20 @@
                 width: 100%;
             }
             .cell {
-                flex: 1;
                 padding: 10px;
                 border-bottom: 1px solid #ccc;
+            }
+            .name{
+                flex: 3;
+            }
+            .size{
+                flex: 1;
+            }
+            .created{
+                flex: 2;
+            }
+            .desc{
+                flex: 4;
             }
             .header .cell {
                 font-weight: bold;
@@ -32,16 +43,16 @@
     <body>
         <div class="table">
             <div class="row header">
-                <div class="cell">Nombre</div>
-                <div class="cell">Tamaño</div>
-                <div class="cell">Subido</div>
-                <div class="cell">Descripción</div>
+                <div class="cell name">Nombre</div>
+                <div class="cell size">Tamaño</div>
+                <div class="cell created">Subido</div>
+                <div class="cell desc">Descripción</div>
             </div>
             <div class="row">
-                <div class="cell" style="background-color: red; flex: 4;">Inicio.html</div>
-                <div class="cell" style="background-color: blue; flex: 3;">2.9 MB</div>
-                <div class="cell" style="background-color: black; flex-shrink: 2;">25 Feb 2022</div>
-                <div class="cell" style="background-color: yellow; flex-shrink: 1;">Página de home de mi página</div>
+                <div class="cell name" style="background-color: red;">Inicio.html</div>
+                <div class="cell size" style="background-color: blue;">2.9 MB</div>
+                <div class="cell created" style="background-color: black;">25 Feb 2022</div>
+                <div class="cell desc" style="background-color: yellow;">Página de home de mi página</div>
             </div>
             <!-- Añade más filas de div según sea necesario -->
         </div>
