@@ -71,7 +71,7 @@ header.cells{
     background-color: #FFF;
     border-radius: 10px;
     height: 500px;
-    width: 70%;
+    flex: 5;
     overflow-y: scroll;
     padding: 30px;
     padding-bottom: 0px;
@@ -151,7 +151,7 @@ header.cells{
     background-color: #FFF;
     border-radius: 10px;
     height: 500px;
-    width: 30%;
+    flex: 2;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -161,14 +161,14 @@ header.cells{
     font-family: DM Sans;
     font-size: 17px;
     color: #232360;
-    min-height: min-content;
-    height: 100%;
-    width: 100%;
+    min-height: max-content;
     border-radius: 10px;
+    height: 100%;
+    min-width: max-content  ;
+    width: 100%;
     border: 1px solid #D9DFE1;
-    padding: 15px 20px;
+    padding: 15px;
     display: flex;
-    align-items: flex-start;
     justify-content: space-between;
     overflow-y: scroll;
 }
@@ -178,18 +178,21 @@ header.cells{
     justify-content: flex-start;
     align-items: flex-start;
     gap: 6px;
+    margin: 20px;
 }
 .mini-fol-r{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-end;
     gap: 10px;
 }
 .folsection{
     height: 40px;
+    width: max-content;
     padding: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     border-radius: 23px;
     border: 1px solid #D7D7D7;
@@ -205,5 +208,6 @@ header.cells{
         width: 100%;
         height: max-content;
         flex-direction: row;
+        grid-template-columns: repeat(1, 1fr); 
     }
 }
